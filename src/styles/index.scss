@@ -1,44 +1,65 @@
-// MIXINS && VARIABLES
-
-@mixin basic-box-shadow($color) {
-  box-shadow: 3px 3px 5px 5px $color, 1px 0px 1px $color;
+html{
+    background: #304352;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #f1e0cc, #383838);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #f1e0cc, #383838); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+    height: -webkit-fill-available;
 }
 
-$main-color: blue;
-$accent-color: darken($main-color, 20%);
-$background-color: lighten($main-color, 40%);
-
-// LAYOUT
-
-body {
-  background-color: $background-color;
-  color: $main-color;
-  display: flex;
-  flex-direction: column;
+html.positive{
+    background: #135e30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #4aac61, #383838);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #4aac61, #383838); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
 }
 
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+html.negative{
+    background: #7e1d1d;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top,  #be3c3c, #383838);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #be3c3c,#383838); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-// COMPONENTS
-.card {
-  background: white;
-  height: 50vh;
-  width: 50vw;
-  border-radius: 15px;
-  margin-top: 15px;
-  @include basic-box-shadow($accent-color);
+body{
+    max-width: 1500px;
+    margin: auto;
 }
 
-.image-card {
-  background-image: url("../images/yoda-stitch.jpg");
-  background-position: center;
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    color: white;
 }
 
-// TYPOGRAPHY
-h2 {
-  font-size: 3rem;
+
+.modal{
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    .modal-background{
+        display: none;
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.377);
+    }
+
+    .about-modal{
+        display: none;
+        position: absolute;
+        transform: translateX(50%) translateY(-50%);
+        top: 50%;
+        right: 50%;
+        z-index: 11;
+        height: 200px;
+        width: 200px;
+        background: red;
+    }
+
+    .modal-background.show, .about-modal.show {
+        display: block;
+    }
 }
