@@ -27,9 +27,12 @@ The app will analyse past trends and show probabilities for the futere of the st
 
 Day 1
 * Stock search feature
+
 Day 2
 * IEX API integration and start data display
+
 Day 3
 * Data graphing using D3
+
 Day 4
 * Predictions algorythm implementation
