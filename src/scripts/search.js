@@ -1,5 +1,10 @@
 export default function search() {
+    const result = document.getElementById('results');
+    const searchInput = document.getElementById('searchBar');
+    const clear = document.getElementById('clear');
+
     let stocks;
+    let searchTerm = searchInput.value;
     
     const fetchStocks = async () => {
         stocks = await fetch(
@@ -7,14 +12,11 @@ export default function search() {
             .then(res => res.json());
     }
 
-    const result = document.getElementById('results');
-
     const showStocks = async () => {
         await fetchStocks();
         
-        const ul = document.createElement('ul');
-        ul.classList.add('stocks');
-
+        stocks = stocks.filter(stock => stock.symbol.includes(searchTerm.toUpperCase()));
+        results.innerHTML = '';
         stocks.forEach(stock => {
             const li = document.createElement('li');
             li.classList.add('stock-item');
@@ -28,11 +30,18 @@ export default function search() {
             li.appendChild(symbol);
             li.appendChild(name);
 
-            ul.appendChild(li);
+            results.appendChild(li);
         })
-
-        results.appendChild(ul);
+        results.style.borderBottom = "10px solid rgba(255, 255, 255, 0)";
+        results.style.borderTop = "10px solid rgba(255, 255, 255, 0)";
     }
 
-    showStocks();
+    const reset = () => {
+        results.innerHTML = "";
+        results.style.border = "none";
+        searchInput.value = "";
+    }
+    
+    clear.addEventListener('click', reset)
+    searchTerm !== "" ? showStocks() : reset();
 }

@@ -24,22 +24,28 @@
       </div>
     </section>
 
-    <button id="neutral">Neutral</button>
-    <button id="positive">Positive</button>
-    <button id="negative">Negative</button>
-
+    
     <div class="search-bar">
-        <input 
-            type="text"
-            name="searchBar"
-            id="searchBar"
-            placeHolder="Look up stock ticker symbol">
-        <div id="results"></div>
-    </div>
+      <div class="input-border"><input 
+        type="text"
+        name="searchBar"
+        id="searchBar"
+        placeHolder="Look up stock ticker symbol"><i class="fas fa-times-circle" id="clear"></i></div>
+        <ul id="results"></ul>
+      </div>
+      
+      <button id="neutral">Neutral</button>
+      <button id="positive">Positive</button>
+      <button id="negative">Negative</button>
+    <section class="main">
+    </section>
+
     <div class="modal">
         <div class="modal-background"></div>
         <div class="about-modal">
             <h1>About</h1>
+            <p>SmarterTrading is an app that watches the stock market trends and variations 
+              and tells the user the best time to buy or sell stock based on historic data fetched from an API.</p>
         </div>
     </div>
   </body>

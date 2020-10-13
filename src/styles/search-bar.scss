@@ -1,0 +1,97 @@
+.search-bar{
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    font-family: 'Lato', sans-serif;
+    z-index: 2;
+    
+    .input-border{
+        --border-width: 3px;
+
+        display: flex;
+        justify-content: space-between;
+        width: 400px;
+        padding: 10px 20px;
+        padding-right: 10px;
+        border-radius: 30px;
+        font-size: 20px;
+        position: relative;
+        background: #363c41;
+
+        i, input::placeholder{
+            color: rgb(129, 129, 129);
+        }
+
+        i:hover{
+            cursor: pointer;
+            color: white;
+        }
+
+        input, input:focus{
+            background: transparent;
+            border: none;
+            outline: none;
+            caret-color: white;
+            color: white;
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            top: calc(-1 * var(--border-width));
+            left: calc(-1 * var(--border-width));
+            z-index: -1;
+            width: calc(100% + var(--border-width) * 2);
+            height: calc(100% + var(--border-width) * 2);
+            background: linear-gradient(
+                45deg, 
+                rgba(255,255,255,1) 9%, 
+                rgba(63,146,82,1) 29%,
+                rgba(189,196,200,1) 53%, 
+                rgba(255,102,128,1) 75%, 
+                rgba(189,196,200,1) 87%);
+            background-size: 300% 300%;
+            background-position: 0% 50%;
+            border-radius: calc(7 * var(--border-width));
+            animation: move 5s alternate infinite;
+          }
+    }
+
+   #results{
+       background-color: rgba(255, 255, 255, 0.5);
+       max-height: 500px;
+       overflow: auto;
+       box-sizing: border-box;
+       padding-left: 0;
+       border-radius: 10px;
+
+       li{
+           display: flex;
+           padding: 10px 20px;
+           text-decoration: none;
+           justify-content: space-between;
+
+           p{
+               margin: 0;
+           }
+       }
+
+       li:hover{
+           transition: background-color 0.5s ease;
+           background-color: lightgrey;
+           cursor: pointer;
+       }
+   }
+
+   #results::-webkit-scrollbar{
+       display: none;
+   }
+}
+
+@keyframes move{
+    50%{
+        background-position: 100% 50%;
+    }
+}
+
+// Color border tutorial: https://codepen.io/alphardex/pen/vYEYGzp

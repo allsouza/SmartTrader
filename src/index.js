@@ -2,6 +2,7 @@ import "./styles/index.scss";
 import { openAbout } from './scripts/modal';
 import setBackground from "./scripts/background";
 import search from "./scripts/search";
+import body from './scripts/body';
 import 'regenerator-runtime/runtime'
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,5 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           search()}, 500)
     })
+
+    body();
 
 })
