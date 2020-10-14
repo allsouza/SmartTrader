@@ -1,3 +1,5 @@
+import body from './body';
+
 export default function search() {
     const result = document.getElementById('results');
     const searchInput = document.getElementById('searchBar');
@@ -30,10 +32,17 @@ export default function search() {
             li.appendChild(symbol);
             li.appendChild(name);
 
+            li.addEventListener('click', () => select(stock.symbol))
+
             results.appendChild(li);
         })
         results.style.borderBottom = "10px solid rgba(255, 255, 255, 0)";
         results.style.borderTop = "10px solid rgba(255, 255, 255, 0)";
+    }
+
+    function select(symbol) {
+        body(symbol);
+        reset();
     }
 
     const reset = () => {
@@ -41,7 +50,7 @@ export default function search() {
         results.style.border = "none";
         searchInput.value = "";
     }
-    
+
     clear.addEventListener('click', reset)
     searchTerm !== "" ? showStocks() : reset();
 }

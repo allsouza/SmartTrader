@@ -6,18 +6,26 @@
     color: white;
     margin: 30px 0;
 
-    h1{
-        font-family: 'Dancing Script', cursive;
-        font-weight: bold;
-        font-size: 40px;
-        margin: 0;
-    }
+    .left{
+        display: flex;
 
-    h3{
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        font-style: italic;
-        font-size: 16px;
-        margin: 0;
+        object{
+            width: 80px;
+        }
+    
+        h1{
+            font-family: 'Dancing Script', cursive;
+            font-weight: bold;
+            font-size: 40px;
+            margin: 0;
+        }
+    
+        h3{
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            font-style: italic;
+            font-size: 16px;
+            margin: 0;
+        }
     }
 }

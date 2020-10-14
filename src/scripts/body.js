@@ -1,10 +1,25 @@
-export default function body (){
+export default function body (symbol){
     const main = document.querySelector('.main');
-    const logo = document.createElement('object');
+    
+    if(typeof symbol !== 'undefined'){
+        clear();
+        window.alert(symbol);
+    }
+    else{
+        logo();
+    }
 
-    logo.type="image/svg+xml";
-    logo.data="./src/images/atom.svg";
-    logo.classList.add('logo');
+    function logo(){
+        const logo = document.createElement('object');
 
-    main.appendChild(logo);
+        logo.type="image/svg+xml";
+        logo.data="./src/images/atom.svg";
+        logo.classList.add('logo');
+
+        main.appendChild(logo);
+    }
+
+    function clear(){
+        main.innerHTML = "";
+    }
 }

@@ -7,13 +7,19 @@
     .logo{
         margin-top: 100px;
         width: 600px;
-        animation: spin 360s infinite linear;
-        opacity: .25;
+        animation: spin 60s infinite linear;
+        opacity: .1;
     }
 }
 
 @keyframes spin{
+    25%{
+        transform:rotate(30deg);
+    }
+    75%{
+        transform: rotate((-30deg));
+    }
     100%{
-        transform:rotate(360deg);
+        transform: rotate(0);
     }
 }
