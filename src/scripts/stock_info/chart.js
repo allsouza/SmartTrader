@@ -1,4 +1,5 @@
 const d3 = require('d3');
+import setBackground from '../background';
 
 export default async function chart(symbol) {
     // symbol = 'AAPL';
@@ -6,12 +7,10 @@ export default async function chart(symbol) {
     const past = (today - 604800000); 
     
     const finnhubData = await fetch(
-        `https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=1&from=${Math.floor(past/1000)}&to=${Math.floor(today/1000)}&token=bu2clnn48v6uohsq5dd0`
+        `https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=30&from=${Math.floor(past/1000)}&to=${Math.floor(today/1000)}&token=bu2clnn48v6uohsq5dd0`
     ).then(res => res.json());
 
-    console.log(finnhubData);
-
-    const chartResultData = [];
+    let chartResultData = [];
         
     for(let i=0; i<finnhubData.t.length; i++){
         chartResultData.push({
@@ -27,6 +26,9 @@ export default async function chart(symbol) {
     initializeChart(chartResultData);
 
     function initializeChart(data) {
+        
+        (data[data.length-1].close - data[0].close) >= 0 ? setBackground('positive') : setBackground('negative');
+
         const margin = { top: 50, right: 50, bottom: 50, left: 50 };
         const width = 600 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom; 
@@ -84,4 +86,7 @@ export default async function chart(symbol) {
            .attr('d', line);
     }
 
+    function movingAvg(data) {
+        
+    }
 }

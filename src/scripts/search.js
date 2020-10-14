@@ -12,6 +12,8 @@ export default function search() {
             window.stocksArray = await fetch(
                 'https://finnhub.io/api/v1/stock/symbol?exchange=US&token=bu2clnn48v6uohsq5dd0')
                 .then(res => res.json());
+            window.stocks = {};
+            window.stocksArray.forEach(ele => window.stocks[ele.symbol] = ele);
         }
     }
 

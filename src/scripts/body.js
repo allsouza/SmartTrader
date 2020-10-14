@@ -1,3 +1,5 @@
+import setBackground from "./background";
+
 export default function body (){
     const main = document.querySelector('.main');
     clear();
@@ -14,6 +16,7 @@ export default function body (){
     }
 
     function clear(){
+        setBackground('neutral');
         main.innerHTML = "";
     }
 }

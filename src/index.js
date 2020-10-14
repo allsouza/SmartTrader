@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector('#about-button').addEventListener('click', openAbout);
 
-    document.querySelector('#neutral').addEventListener('click', () => setBackground('neutral'));
-    document.querySelector('#positive').addEventListener('click', () => setBackground("positive"));
-    document.querySelector('#negative').addEventListener('click', () => setBackground("negative"));
+    // document.querySelector('#neutral').addEventListener('click', () => setBackground('neutral'));
+    // document.querySelector('#positive').addEventListener('click', () => setBackground("positive"));
+    // document.querySelector('#negative').addEventListener('click', () => setBackground("negative"));
 
     window.stocksArray = [];
-    
+
     document.querySelector('#searchBar').addEventListener('input', () => {
         setTimeout(() => {
           search()}, 500)
