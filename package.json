@@ -17,6 +17,7 @@
   "author": "mrcjbradley",
   "license": "ISC",
   "dependencies": {
+    "d3": "^6.2.0",
     "finnhub": "^1.2.1"
   },
   "devDependencies": {

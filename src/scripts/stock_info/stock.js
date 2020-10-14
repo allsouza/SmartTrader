@@ -1,9 +1,10 @@
+import chart from "./chart";
 
 export default async function show(symbol) {
     const main = document.querySelector('.main');
     main.innerHTML = "";
 
-    const info = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=bu2clnn48v6uohsq5dd0`).then(res => res.json());
+    const info = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=bu2clnn48v6uohsq5dd0`).then(res =>  res.json());
     console.log(info);
 
     const header = document.createElement('div');
@@ -16,7 +17,7 @@ export default async function show(symbol) {
     const exchange = document.createElement('p');
     const ipo = document.createElement('p');
   
-    logo.src=`${info.logo}`;
+    if(info.logo) logo.src=`${info.logo}`;
     name.innerText = `${info.name}`;
     ticker.innerText = `(${info.ticker})`;
     firstLine.appendChild(logo);
@@ -37,4 +38,6 @@ export default async function show(symbol) {
     header.classList.add('body-header');
 
     main.appendChild(header);
+
+    chart();
 }
