@@ -7,7 +7,7 @@ export default async function chart(symbol) {
     const past = (today - 604800000); 
     
     const finnhubData = await fetch(
-        `https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=30&from=${Math.floor(past/1000)}&to=${Math.floor(today/1000)}&token=bu2clnn48v6uohsq5dd0`
+        `https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=15&from=${Math.floor(past/1000)}&to=${Math.floor(today/1000)}&token=bu2clnn48v6uohsq5dd0`
     ).then(res => res.json());
 
     let chartResultData = [];
@@ -84,9 +84,40 @@ export default async function chart(symbol) {
            .attr('stroke', 'steelblue')
            .attr('stroke-width', '1.5')
            .attr('d', line);
+
+        // Moving Avg
+        const movingAvgData = movingAvg(data, 6);
+        debugger
+        const movingAverageLine = d3
+            .line()
+            .x(d => {
+            return xScale(d['date']);
+            })
+            .y(d => {
+            return yScale(d['average']);
+            })
+            .curve(d3.curveBasis);
+       svg
+            .append('path')
+            .data([movingAvgData])
+            .style('fill', 'none')
+            .attr('id', 'movingAverageLine')
+            .attr('stroke', '#FF8900')
+            .attr('d', movingAverageLine);
     }
 
-    function movingAvg(data) {
-        
-    }
+    function movingAvg(data, numberOfPricePoints){
+        return data.map((row, index, total) => {
+          const start = Math.max(0, index - numberOfPricePoints);
+          const end = index;
+          const subset = total.slice(start, end + 1);
+          const sum = subset.reduce((a, b) => {
+            return a + b['close'];
+          }, 0);
+          return {
+            date: row['date'],
+            average: sum / subset.length
+          };
+        });
+      };
 }
