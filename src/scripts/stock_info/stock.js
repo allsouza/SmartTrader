@@ -39,5 +39,9 @@ export default async function show(symbol) {
 
     main.appendChild(header);
 
-    chart();
+    const chartEle = document.createElement('div');
+    chartEle.id = "chart";
+    main.appendChild(chartEle);
+
+    chart(info.ticker);
 }
