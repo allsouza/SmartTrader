@@ -1,13 +1,7 @@
-export default function body (symbol){
+export default function body (){
     const main = document.querySelector('.main');
-    
-    if(typeof symbol !== 'undefined'){
-        clear();
-        window.alert(symbol);
-    }
-    else{
-        logo();
-    }
+    clear();
+    logo();
 
     function logo(){
         const logo = document.createElement('object');

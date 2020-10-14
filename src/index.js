@@ -13,10 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('#positive').addEventListener('click', () => setBackground("positive"));
     document.querySelector('#negative').addEventListener('click', () => setBackground("negative"));
 
+    window.stocksArray = [];
+    
     document.querySelector('#searchBar').addEventListener('input', () => {
         setTimeout(() => {
           search()}, 500)
     })
+
+    document.querySelector('.left').addEventListener('click', body);
 
     body();
 
