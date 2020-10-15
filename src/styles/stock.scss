@@ -1,0 +1,13 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    #chart{
+        background: #0303032d;
+        border-radius: 10px;
+        color: rgb(168, 168, 168);   
+        min-width: 70%;
+        min-height: 400px;
+    }
+}

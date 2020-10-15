@@ -8,6 +8,12 @@ export default async function show(symbol) {
 
     const info = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=bu2clnn48v6uohsq5dd0`).then(res =>  res.json());
     
+    const chartEle = document.createElement('div');
+    chartEle.id = "chart";
+    main.appendChild(chartEle);
+
+    chart(symbol);
+    
     if(info["ticker"] !== undefined){
         const header = document.createElement('div');
         const firstLine = document.createElement('div');
@@ -61,9 +67,5 @@ export default async function show(symbol) {
 
     
 
-    const chartEle = document.createElement('div');
-    chartEle.id = "chart";
-    main.appendChild(chartEle);
 
-    chart(symbol);
 }

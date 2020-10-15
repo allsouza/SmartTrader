@@ -1,8 +1,11 @@
 const d3 = require('d3');
 import setBackground from '../background';
 
+// Written using Wen Tjun Chan's tutorial at https://www.freecodecamp.org/news/how-to-build-historical-price-charts-with-d3-js-72214aaf6ba3/
+// Line animations from http://duspviz.mit.edu/d3-workshop/transitions-animation/
+
 export default async function chart(symbol) {
-    // symbol = 'AAPL';
+    const duration = 4000;
     const today = + new Date();
     const past = (today - 7776000000); 
     
@@ -26,11 +29,12 @@ export default async function chart(symbol) {
     initializeChart(chartResultData);
 
     function initializeChart(data) {
+        const days = 90;
         
         (data[data.length-1].close - data[0].close) >= 0 ? setBackground('positive') : setBackground('negative');
 
-        const margin = { top: 50, right: 50, bottom: 50, left: 50 };
-        const width = 600 - margin.left - margin.right;
+        const margin = { top: 30, right: 45, bottom: 40, left: 25 };
+        const width = document.querySelector('#chart').offsetWidth - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom; 
 
         // Create empty chart
@@ -77,7 +81,7 @@ export default async function chart(symbol) {
               return yScale(d['close']);
             });
    
-        svg
+        const chartLine = svg
            .append('path')
            .data([data])
            .style('fill', 'none')
@@ -85,9 +89,11 @@ export default async function chart(symbol) {
            .attr('stroke', 'steelblue')
            .attr('stroke-width', '1.5')
            .attr('d', line);
+        
+
 
         // Moving Avg Line
-        const movingAvgData = movingAvg(data, 90);
+        const movingAvgData = movingAvg(data, days);
 
         const movingAverageLine = d3
             .line()
@@ -98,19 +104,20 @@ export default async function chart(symbol) {
             return yScale(d['average']);
             })
             .curve(d3.curveBasis);
-       svg
+       const movingAvgLine = svg
             .append('path')
             .data([movingAvgData])
             .style('fill', 'none')
             .attr('id', 'movingAverageLine')
             .attr('stroke', '#FF8900')
             .attr('d', movingAverageLine);
+       
 
         // Volume bars
         const volData = data.filter(d => d['volume'] !== null && d['volume'] !== 0)
         const yMinVol = d3.min(volData, d => Math.min(d['volume']));
         const yMaxVol = d3.max(volData, d => Math.max(d['volume']));
-        const yVolScale = d3.scaleLinear().domain([yMinVol, yMaxVol]).range([height, height * (3/4)]);
+        const yVolScale = d3.scaleLinear().domain([yMinVol, yMaxVol]).range([height, height * (3/5)]);
 
         svg
             .selectAll()
@@ -118,7 +125,7 @@ export default async function chart(symbol) {
             .enter()
             .append('rect')
             .attr('x', d => xScale(d['date']))
-            .attr('y', d => yVolScale(d['volume']))
+            .attr('y', d => yScale(0))
             .attr('fill', (d, i) => {
                 if(i === 0){
                     return '#03a678';
@@ -128,7 +135,14 @@ export default async function chart(symbol) {
                 }
             })
             .attr('width', 1)
-            .attr('height', d => (height - yVolScale(d['volume'])));
+            .attr('height', d => height -yScale(0))
+
+        svg.selectAll("rect")
+            .transition()
+            .duration(duration)
+            .attr('height', d => (height - yVolScale(d['volume'])))
+            .attr('y', d => yVolScale(d['volume']))
+            .delay(function(d,i){return(i*100)})
 
         // Mouseover info display
         const focus = svg
@@ -143,8 +157,12 @@ export default async function chart(symbol) {
             .attr('class', 'overlay')
             .attr('width', width)
             .attr('height', height)
-            .on('mouseover', () => focus.style('display', null))
-            .on('mouseout', () => focus.style('display', 'none'))
+            .on('mouseover', () => {
+                d3.selectAll('.lineDisplay').style('display', null)
+                focus.style('display', null)})
+            .on('mouseout', () => {
+                d3.selectAll('.lineDisplay').style('display', "none")
+                focus.style('display', 'none')})
             .on('mousemove', e => generateCrosshair(e));
         d3.select('.overlay').style('fill', 'none');
         d3.select('.overlay').style('pointer-events', 'all');
@@ -178,6 +196,7 @@ export default async function chart(symbol) {
             .attr('y1', 0)
             .attr('y2', height - yScale(currentPoint['close']));
          updateDisplay(currentPoint);
+         
         }
         
         const updateDisplay = currentData => {
@@ -204,6 +223,26 @@ export default async function chart(symbol) {
               .style('fill', 'white')
               .attr('transform', 'translate(15,9)');
             };
+
+        // Animation for graph line
+        const lineLength = chartLine.node().getTotalLength();
+        chartLine
+            .attr("stroke-dasharray", lineLength + " " + lineLength)
+            .attr("stroke-dashoffset", lineLength)
+        .transition()
+            .duration(duration)
+            .ease(d3.easeLinear)
+            .attr("stroke-dashoffset", 0)
+            
+        // Animation for movingAvg line
+        const avgLineLength = movingAvgLine.node().getTotalLength();
+        movingAvgLine
+            .attr("stroke-dasharray", avgLineLength + " " + avgLineLength)
+            .attr("stroke-dashoffset", avgLineLength)
+        .transition()
+            .duration(duration)
+            .ease(d3.easeLinear)
+            .attr("stroke-dashoffset", 0)
     }
 
     function movingAvg(data, days){
