@@ -1,8 +1,10 @@
+import setBackground from "../background";
 import chart from "./chart";
 
 export default async function show(symbol) {
     const main = document.querySelector('.main');
     main.innerHTML = "";
+    setBackground('neutral')
 
     const info = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=bu2clnn48v6uohsq5dd0`).then(res =>  res.json());
     
