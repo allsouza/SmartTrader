@@ -1,6 +1,6 @@
 # SmarterTrading
 
-SmarterTrading is an app that watches the stock market trends and variations and tells the user the best time to buy or sell stock based on historic data fetched from an API.
+[SmarterTrading](https://allsouza.github.io/SmarterTrading/) is an app that watches the stock market trends and variations and tells the user the best time to buy or sell stock based on historic data fetched from an API.
 
 # Background and Overview
 
