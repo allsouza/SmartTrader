@@ -12,6 +12,8 @@ export default async function companyNews(symbol) {
     ).then(res => res.json());
 
     for(let i=0; i<5; i++){
-        newsIndexItem(news[i], '#company-news');
+        setTimeout(() => {
+            newsIndexItem(news[i], '#company-news');
+        }, i*500)
     }
 }

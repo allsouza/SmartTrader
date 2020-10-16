@@ -22,7 +22,7 @@ html{
 }
 
 html::before{
-    position: absolute;
+    position: fixed;
     content: "";
     top: 0;
     right: 0;
@@ -45,7 +45,7 @@ html.positive::before{
 }
 
 html::after{
-    position: absolute;
+    position: fixed;
     content: "";
     top: 0;
     right: 0;

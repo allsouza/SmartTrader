@@ -10,6 +10,8 @@ export default async function newsIndex() {
     ).then(res => res.json());
 
     for(let i=0; i<9; i++){
-        newsIndexItem(news[i], '#home-news');
+        setTimeout(() => {
+            newsIndexItem(news[i], '#home-news');
+        }, i*500)
     }
 }

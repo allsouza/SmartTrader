@@ -15,7 +15,7 @@
         .first-line{
             display: flex;
             align-items: center;
-            
+            margin-bottom: 15px;
             img{
                 height: 50px;
                 border-radius: 15px;
@@ -67,6 +67,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+            animation: slide 2.5s ease;
 
             img{
                 width: 100%;
@@ -87,5 +88,21 @@
             cursor: pointer;
             background-color: rgba(8, 9, 48, 0.568);
         }
+    }
+}
+
+@keyframes slide{
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    25%{
+        transform: translateY(100px);
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }

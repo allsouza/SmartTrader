@@ -1,3 +1,5 @@
+import { transition } from "d3";
+
 export default function newsIndexItem(data, container) {
     const ul = document.querySelector(container);
     const li = document.createElement('li');

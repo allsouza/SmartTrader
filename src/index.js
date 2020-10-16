@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector('.left').addEventListener('click', body);
 
-    body();
-    // show('AMZN')
+    // body();
+    show('AMZN')
 
 })

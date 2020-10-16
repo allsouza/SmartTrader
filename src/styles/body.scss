@@ -5,7 +5,7 @@
     align-items: center;
     position: relative;
     // max-height: 700px;
-    overflow: auto;
+    overflow: hidden;
 
     .logo{
         position: fixed;
@@ -32,7 +32,7 @@
             border-radius: 15px;
             font-family: 'Lato', sans-serif;
             color: white;
-
+            animation: slide 2.5s ease;
             img{
                 width: 100%;
             }
@@ -67,5 +67,21 @@
     }
     100%{
         transform: rotate(0);
+    }
+}
+
+@keyframes slide{
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    25%{
+        transform: translateY(100px);
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }
