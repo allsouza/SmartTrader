@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 60px;
+    font-family:'Lato', sans-serif;
 
     .body-header{
         display: flex;
@@ -10,7 +11,6 @@
         align-items: center;
         color: white;
         width: 80%;
-        font-family:'Lato', sans-serif;
         
         .first-line{
             display: flex;
@@ -53,8 +53,8 @@
         width: 90%;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
         padding:0;
+        padding-left: 4%;
         li{
             list-style: none;
             width: 200px;
@@ -82,11 +82,22 @@
                 font-size: 14px;
                 text-align: right;
             }
-            transition: background-color 0.5s ease;
+            transition: all 0.5s ease;
         }
         li:hover{
             cursor: pointer;
             background-color: rgba(8, 9, 48, 0.568);
+            transform: scale(1.1);
+        }
+    }
+
+    .under-chart{
+        display: flex;
+        justify-content: space-between;
+        width: 77%;
+        color: white;
+        #right{
+            text-align: right;
         }
     }
 }

@@ -49,11 +49,12 @@
             p{
                 font-size: 14px;
             }
-            transition: background-color 0.5s ease;
+            transition: all 0.5s ease;
         }
         li:hover{
             cursor: pointer;
             background-color: rgba(8, 9, 48, 0.568);
+            transform: scale(1.1);
         }
     }
 }

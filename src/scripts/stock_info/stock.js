@@ -2,6 +2,8 @@ import setBackground from "../background";
 import { formatThousands } from "../format_util";
 import companyNews from "../news/company_news";
 import chart from "./chart";
+import financials from "./financials";
+import priceTarget from "./price_target";
 
 export default async function show(symbol) {
     const main = document.querySelector('.main');
@@ -85,6 +87,11 @@ export default async function show(symbol) {
 
     chart(symbol);
 
+    const underChart = document.createElement('div');
+    underChart.classList.add('under-chart');
+    main.appendChild(underChart);
+    await financials(symbol);
+    priceTarget(symbol);
     companyNews(symbol);
 
 }
