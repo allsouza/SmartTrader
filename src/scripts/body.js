@@ -19,6 +19,7 @@ export default function body (){
 
     function clear(){
         setBackground('neutral');
+        if(document.querySelector('.suggestion')) document.querySelector('.suggestion').classList.remove('show');
         main.innerHTML = "";
     }
 }

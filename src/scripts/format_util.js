@@ -3,7 +3,12 @@ export function formatThousands(num){
         const result = [];
         const float = num % 1 !== 0;
         while (num > 1000){
-            result.unshift(num%1000 >= 100 ? num%1000 : `0`+`${(num%1000).toFixed(2)}`);
+            if(result.length === 0){
+                result.unshift(num%1000 >= 100 ? (num%1000).toFixed(2) : `0`+`${(num%1000).toFixed(2)}`);
+            } 
+            else{
+                result.unshift(num%1000 >= 100 ? (num%1000) : `0`+`${(num%1000)}`);
+            }
             num = parseInt(num/1000);
         }
         result.unshift(num);

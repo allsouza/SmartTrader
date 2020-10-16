@@ -7,10 +7,15 @@
 @import './search-bar.scss';
 @import './body.scss';
 @import './stock.scss';
+@import './suggetion.scss';
 
 body{
     overflow: auto;
     max-width: 1500px;
     margin: auto;
     padding: 0 30px;
+}
+
+body::-webkit-scrollbar{
+    display: none;
 }

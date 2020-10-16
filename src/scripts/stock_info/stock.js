@@ -4,11 +4,15 @@ import companyNews from "../news/company_news";
 import chart from "./chart";
 import financials from "./financials";
 import priceTarget from "./price_target";
+import suggestion from "./suggestion";
+import quote from './quote';
 
 export default async function show(symbol) {
+    
     const main = document.querySelector('.main');
     main.innerHTML = "";
     setBackground('neutral');
+    if (document.querySelector('.suggestion')) document.querySelector('.suggestion').classList.remove('show');
 
     const info = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=bu2clnn48v6uohsq5dd0`).then(res =>  res.json());
 
@@ -21,6 +25,7 @@ export default async function show(symbol) {
         const secondLine = document.createElement('div');
         const left = document.createElement('div');
         const right = document.createElement('div');
+        const center = document.createElement('div')
         const country = document.createElement('p');
         const exchange = document.createElement('p');
         const ipo = document.createElement('p');
@@ -42,19 +47,18 @@ export default async function show(symbol) {
         industry.innerText = `Industry: ${info.finnhubIndustry}`;
         marketCap.innerText = `Market Cap: ${formatThousands(info.marketCapitalization)}`;
         outstandingShares.innerText = `Shares Outstanding: ${formatThousands(info.shareOutstanding)}`;
-        console.log(info.marketCapitalization);
-        console.log(info.shareOutstanding);
 
         left.appendChild(country);
         left.appendChild(exchange);
-        left.appendChild(ipo);
-        right.appendChild(industry);
+        center.appendChild(ipo);
+        center.appendChild(industry);
         right.appendChild(marketCap);
         right.appendChild(outstandingShares);
         left.classList.add('left-header');
         right.classList.add('right-header');
         secondLine.classList.add('second-line');
         secondLine.appendChild(left);
+        secondLine.appendChild(center);
         secondLine.appendChild(right);
         
         header.appendChild(firstLine);
@@ -91,7 +95,9 @@ export default async function show(symbol) {
     underChart.classList.add('under-chart');
     main.appendChild(underChart);
     await financials(symbol);
+    await quote(symbol);
     priceTarget(symbol);
     companyNews(symbol);
-
+    await suggestion(symbol);
+    setTimeout(() => document.querySelector('.suggestion').classList.add('show'), 1000);
 }

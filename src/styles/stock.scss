@@ -32,8 +32,12 @@
         .second-line{
             width: 100%;
             display: flex;
+            text-align: center;
             justify-content: space-around;
             border-top: 1px solid white;
+            div{
+                width: 30%;
+            }
         }
     }
 
@@ -96,8 +100,46 @@
         justify-content: space-between;
         width: 77%;
         color: white;
+        font-size: 18px;
+        margin-top: 25px;
         #right{
             text-align: right;
+        }
+
+        #center{
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            border-radius: 30px;
+            padding: 0 7%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            #top{
+                text-align: center;
+                h1{
+                    font-size: 40px;
+                    margin: 0;
+                }
+                p{
+                    font-size: 14px;
+                    font-style: italic;
+                }
+            }
+            #bottom{
+                span{
+                    display: flex;
+                    justify-content: space-between;
+                    p{
+                        margin: 10px 0;
+                    }
+                    p:last-of-type{
+                        margin-left: 40px;
+                    }
+                }
+                span:last-child{
+                    text-align: right;
+                }
+            }
         }
     }
 }

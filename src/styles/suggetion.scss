@@ -1,0 +1,32 @@
+.suggestion{
+    position: absolute;
+    top: 140px;
+    left: 15%;
+    background: rgba(168, 168, 168, 0.274);
+    padding: 10px 20px;
+    border-radius: 20px;
+    z-index: 15;
+    opacity: 0;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 10px rgba(94, 94, 94, 0.685);
+    font-family:'Lato', sans-serif;
+    color: white;
+    font-size: 20px;
+
+    .arrow{
+        z-index: 4;
+        position: absolute;
+        left: 43%;
+        top: -30px;
+        width: 0; 
+        height: 0; 
+        border-left: 7px solid transparent;
+        border-right: 20px solid transparent; 
+        border-bottom:30px solid rgba(168, 168, 168, 0.274);
+        background: transparent 
+    }
+}
+
+.suggestion.show{
+    opacity: 1;
+}
