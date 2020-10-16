@@ -6,6 +6,7 @@ function openAbout() {
     background.classList.add('show');
 
     background.addEventListener('click', closeModal);
+    document.querySelector('#close-modal').addEventListener('click', closeModal)
 }
 
 function closeModal() { 
