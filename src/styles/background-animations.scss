@@ -37,7 +37,7 @@ html::before{
     animation: gradient 10s ease infinite;
     z-index: -1;
     opacity: 0;
-    transition: opacity 1s ease;
+    transition: opacity 5s ease;
 }
 
 html.positive::before{
@@ -52,15 +52,15 @@ html::after{
     left: 0;
     bottom: 0;
     background: #c31432;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #383838, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #383838, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to bottom, #383838, #a01028);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #383838, #a01028); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-repeat: no-repeat;
     height: -webkit-fill-available;
     background-size: 400% 400%;
     animation: gradient 10s ease infinite;
     z-index: -1;
     opacity: 0;
-    transition: opacity 1s linear;
+    transition: opacity 5s linear;
 }
 
 

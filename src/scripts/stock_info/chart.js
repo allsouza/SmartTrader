@@ -118,7 +118,7 @@ export default async function chart(symbol) {
         const yMinVol = d3.min(volData, d => Math.min(d['volume']));
         const yMaxVol = d3.max(volData, d => Math.max(d['volume']));
         const yVolScale = d3.scaleLinear().domain([yMinVol, yMaxVol]).range([height, height * (3/5)]);
-
+        
         svg
             .selectAll()
             .data(volData)
@@ -135,7 +135,7 @@ export default async function chart(symbol) {
                 }
             })
             .attr('width', 1)
-            .attr('height', d => height -yScale(0))
+            .attr('height', d => height - yScale(0) > 0 ? height - yScale(0) : 0) // Causes the negative error if I have it coming from the line instead of the bottom.
 
         svg.selectAll("rect")
             .transition()
@@ -196,7 +196,6 @@ export default async function chart(symbol) {
             .attr('y1', 0)
             .attr('y2', height - yScale(currentPoint['close']));
          updateDisplay(currentPoint);
-         
         }
         
         const updateDisplay = currentData => {
@@ -221,7 +220,6 @@ export default async function chart(symbol) {
                 }
               })
               .style('fill', 'white')
-              .attr('transform', 'translate(15,9)');
             };
 
         // Animation for graph line
