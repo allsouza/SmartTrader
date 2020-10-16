@@ -1,9 +1,11 @@
 import setBackground from "./background";
+import newsIndex from "./news/news_index";
 
 export default function body (){
     const main = document.querySelector('.main');
     clear();
     logo();
+    newsIndex();
 
     function logo(){
         const logo = document.createElement('object');

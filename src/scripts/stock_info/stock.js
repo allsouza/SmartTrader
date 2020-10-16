@@ -1,5 +1,6 @@
 import setBackground from "../background";
 import { formatThousands } from "../format_util";
+import companyNews from "../news/company_news";
 import chart from "./chart";
 
 export default async function show(symbol) {
@@ -84,5 +85,6 @@ export default async function show(symbol) {
 
     chart(symbol);
 
+    companyNews(symbol);
 
 }

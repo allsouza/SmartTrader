@@ -24,6 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('.left').addEventListener('click', body);
 
     body();
-    // show('AAPL')
+    // show('AMZN')
 
 })
