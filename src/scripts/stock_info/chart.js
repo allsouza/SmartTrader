@@ -1,5 +1,6 @@
 const d3 = require('d3');
 import setBackground from '../background';
+import { formatThousands } from '../format_util';
 
 // Written using Wen Tjun Chan's tutorial at https://www.freecodecamp.org/news/how-to-build-historical-price-charts-with-d3-js-72214aaf6ba3/
 // Line animations from http://duspviz.mit.edu/d3-workshop/transitions-animation/
@@ -216,7 +217,7 @@ export default async function chart(symbol) {
                 } else if ( d === 'high' || d === 'low' || d === 'open' || d === 'close') {
                   return `${d[0].toUpperCase()+d.slice(1)}: ${currentData[d].toFixed(2)}`;
                 } else {
-                  return `${d[0].toUpperCase()+d.slice(1)}: ${currentData[d]}`;
+                  return `${d[0].toUpperCase()+d.slice(1)}: ${formatThousands(currentData[d])}`;
                 }
               })
               .style('fill', 'white')

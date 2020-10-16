@@ -20,7 +20,8 @@ export default function search() {
     const showStocks = async () => {
         await fetchStocks();
         let stocks = window.stocksArray;
-        stocks = stocks.filter(stock => stock.symbol.includes(searchTerm.toUpperCase()));
+        
+        stocks = stocks.filter(stock => stock.description.includes(searchTerm.toUpperCase()) || stock.symbol.includes(searchTerm.toUpperCase()));
         results.innerHTML = '';
         if(stocks.length > 0){
             stocks.forEach(stock => {

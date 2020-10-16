@@ -1,4 +1,5 @@
 import setBackground from "../background";
+import { formatThousands } from "../format_util";
 import chart from "./chart";
 
 export default async function show(symbol) {
@@ -15,9 +16,14 @@ export default async function show(symbol) {
         const ticker = document.createElement('h3');
         const logo = document.createElement('img');
         const secondLine = document.createElement('div');
+        const left = document.createElement('div');
+        const right = document.createElement('div');
         const country = document.createElement('p');
         const exchange = document.createElement('p');
         const ipo = document.createElement('p');
+        const industry = document.createElement('p');
+        const marketCap = document.createElement('p');
+        const outstandingShares = document.createElement('p');
     
         if(info.logo) logo.src=`${info.logo}`;
         name.innerText = `${info.name}`;
@@ -30,10 +36,23 @@ export default async function show(symbol) {
         country.innerText = `Country: ${info.country}`;
         exchange.innerText = `Exchange: ${info.exchange}`;
         ipo.innerText = `IPO Date: ${info.ipo}`;
-        secondLine.appendChild(country);
-        secondLine.appendChild(exchange);
-        secondLine.appendChild(ipo);
+        industry.innerText = `Industry: ${info.finnhubIndustry}`;
+        marketCap.innerText = `Market Cap: ${formatThousands(info.marketCapitalization)}`;
+        outstandingShares.innerText = `Shares Outstanding: ${formatThousands(info.shareOutstanding)}`;
+        console.log(info.marketCapitalization);
+        console.log(info.shareOutstanding);
+
+        left.appendChild(country);
+        left.appendChild(exchange);
+        left.appendChild(ipo);
+        right.appendChild(industry);
+        right.appendChild(marketCap);
+        right.appendChild(outstandingShares);
+        left.classList.add('left-header');
+        right.classList.add('right-header');
         secondLine.classList.add('second-line');
+        secondLine.appendChild(left);
+        secondLine.appendChild(right);
         
         header.appendChild(firstLine);
         header.appendChild(secondLine);
