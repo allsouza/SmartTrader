@@ -2,29 +2,74 @@
     width: -webkit-fill-available;
     height: -webkit-fill-available;
     .modal-background{
-        display: none;
-        position: absolute;
+        opacity: 0;
+        position: fixed;
         width: inherit;
         height: inherit;
         top: 0;
         right: 0;
-        z-index: 10;
-        background: rgba(255, 255, 255, 0.377);
+        z-index: -1;
+        background: rgba(255, 255, 255, 0.555);
+        backdrop-filter: blur(5px);
+        transition: opacity 0.5s ease;
     }
 
     .about-modal{
-        display: none;
+        opacity: 0;
         position: absolute;
         transform: translateX(50%) translateY(-50%);
         top: 50%;
         right: 50%;
-        z-index: 11;
-        height: 200px;
-        width: 200px;
-        background: red;
+        z-index: -1;
+        height: 400px;
+        width: 800px;
+        background: rgb(49, 46, 46);
+        color: white;
+        transition: opacity 0.5s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 20px;
+        padding: 30px;
+        font-family: 'Lato', sans-serif;
+
+        div:first-of-type{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 140px;
+            object{
+                height: 160px;
+            }
+        }
+        
+        div:last-of-type{
+            display: flex;
+            align-self: flex-end;
+            align-items: center;
+            p{
+                padding-right: 10px;
+                font-size: 22px;
+                font-style: italic;
+            }
+
+            i{
+                padding: 0 10px;
+                color: white;
+                font-size: 30px;
+            }
+        }
     }
 
-    .modal-background.show, .about-modal.show {
-        display: block;
+    .modal-background.show{
+        opacity: 1;
+        z-index: 10;
+        transition: opacity 0.5s ease;
+    }
+    
+    .about-modal.show {
+        opacity: 1;
+        z-index: 11;
+        transition: opacity 0.5s ease;
     }
 }

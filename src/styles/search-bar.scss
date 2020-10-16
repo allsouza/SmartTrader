@@ -1,7 +1,7 @@
 .search-bar{
     position: absolute;
     right: 50%;
-    top: 120px;
+    top: 100px;
     transform: translateX(50%);
     font-family: 'Lato', sans-serif;
     z-index: 10;
@@ -21,6 +21,7 @@
 
         i, input::placeholder{
             color: rgb(129, 129, 129);
+            transition: color 0.5s ease;
         }
 
         i:hover{

@@ -34,8 +34,6 @@ export default async function suggestion(symbol) {
             break;
     }
 
-    console.log(suggestion, buy, hold, sell);
-
     container.innerText = `You should ${suggestion} this stock.`;
     container.appendChild(arrow);
     document.querySelector('body').appendChild(container);

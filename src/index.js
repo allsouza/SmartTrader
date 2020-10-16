@@ -1,18 +1,13 @@
 import "./styles/index.scss"; 
 import { openAbout } from './scripts/modal';
-import setBackground from "./scripts/background";
 import search from "./scripts/search";
 import body from './scripts/body';
 import 'regenerator-runtime/runtime'
-import show from "./scripts/stock_info/stock";
 
 document.addEventListener("DOMContentLoaded", () => {
+    openAbout();
 
     document.querySelector('#about-button').addEventListener('click', openAbout);
-
-    // document.querySelector('#neutral').addEventListener('click', () => setBackground('neutral'));
-    // document.querySelector('#positive').addEventListener('click', () => setBackground("positive"));
-    // document.querySelector('#negative').addEventListener('click', () => setBackground("negative"));
 
     window.stocksArray = [];
 
@@ -23,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector('.left').addEventListener('click', body);
 
-    // body();
-    show('AMZN')
+    body();
 
 })
