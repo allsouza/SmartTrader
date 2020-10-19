@@ -1,4 +1,4 @@
-# SmarterTrading
+# SmarterTrading ![](https://github.com/allsouza/SmarterTrading/blob/master/src/images/atom.svg)
 
 [SmarterTrading](https://allsouza.github.io/SmarterTrading/) is an app that watches the stock market trends and variations and tells the user the best time to buy or sell stock based on historic data fetched from an API.
 
@@ -10,29 +10,22 @@ By using historical data fetched from an external API SmarterTrading will run an
 
 # Functionality and MVPs
 
-SmarterTrading will allow the user to search for a specific stock, and display information reuarding said stock.
-The app will connect with IEX API and fetch historical data about the searched stock.
-The app will display graphs on historical data about the stock.
-The app will analyse past trends and show probabilities for the futere of the stock.
+SmarterTrading will allow the user to search for a specific stock, and display information regarding said stock.
+![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/search.gif)
 
-# Wireframes
+The app will connect with Finnhub API and fetch historical data about the searched stock.
+![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/request.png)
+
+The app will display graphs on historical data about the stock.
+![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/graph.gif)
+
+The app will analyse past trends and make a suggestion about the stock.
+![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/Screenshot%20from%202020-10-19%2012-02-15.png)
+![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/hold.png)
+![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/sell.png)
 
 # Architecture and Technologies
 
 * Javascript
 * D3 graphing
-* IEX Cloud API
-
-# Implementation Timeline
-
-Day 1
-* Stock search feature
-
-Day 2
-* IEX API integration and start data display
-
-Day 3
-* Data graphing using D3
-
-Day 4
-* Predictions algorythm implementation
+* Finnhub API
