@@ -19,7 +19,7 @@ The app will connect with Finnhub API and fetch historical data about the search
 The app will display graphs on historical data about the stock.
 ![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/graph.gif)
 
-The app will analyse past trends and make a suggestion about the stock.
+Using analyst suggestions the app then suggests a course of action to the user.
 ![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/Screenshot%20from%202020-10-19%2012-02-15.png)
 ![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/hold.png)
 ![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/sell.png)
