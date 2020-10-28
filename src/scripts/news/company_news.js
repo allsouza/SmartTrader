@@ -11,9 +11,11 @@ export default async function companyNews(symbol) {
         `https://finnhub.io/api/v1//company-news?symbol=${symbol}&from=${formatDate(new Date(Date.now() - 604800000))}&to=${formatDate(new Date(Date.now()))}&token=bu2clnn48v6uohsq5dd0`
     ).then(res => res.json());
 
-    for(let i=0; i<5; i++){
-        setTimeout(() => {
-            newsIndexItem(news[i], '#company-news');
-        }, i*500)
+    if(news.length>0){
+        for(let i=0; i<5; i++){
+            setTimeout(() => {
+                newsIndexItem(news[i], '#company-news');
+            }, i*500)
+        }
     }
 }
