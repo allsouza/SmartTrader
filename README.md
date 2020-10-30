@@ -8,15 +8,15 @@ While some might view the stock market as a casino where only luck plays a facto
 
 By using historical data fetched from an external API SmarterTrading will run an analysis and make a suggestion on what action the user should take reguarding the specific stock.
 
-# Functionality and MVPs
+# Functionality and Technologies Used
 
-SmarterTrading will allow the user to search for a specific stock, and display information regarding said stock.
+SmarterTrading allows users to search for a specific stock using the company name or stock ticker symbol, and displays information regarding said stock.
 ![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/search.gif)
 
-The app will connect with Finnhub API and fetch historical data about the searched stock.
+The app connects with Finnhub API and fetches historical data about the searched stock.
 ![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/request.png)
 
-The app will display graphs on historical data about the stock.
+The app uses the D3 library to display a chart on historical data about the stock.
 ![](https://github.com/allsouza/SmarterTrading/blob/master/read_me/graph.gif)
 
 Using analyst suggestions the app then suggests a course of action to the user.
