@@ -1,11 +1,6 @@
 import setBackground from "../background";
 import { formatThousands } from "../format_util";
-import companyNews from "../news/company_news";
 import chart from "./chart";
-import financials from "./financials";
-import priceTarget from "./price_target";
-import suggestion from "./suggestion";
-import quote from './quote';
 
 export default async function show(symbol) {
     
@@ -94,10 +89,4 @@ export default async function show(symbol) {
     const underChart = document.createElement('div');
     underChart.classList.add('under-chart');
     main.appendChild(underChart);
-    await financials(symbol);
-    await quote(symbol);
-    priceTarget(symbol);
-    companyNews(symbol);
-    await suggestion(symbol);
-    setTimeout(() => document.querySelector('.suggestion').classList.add('show'), 1000);
 }

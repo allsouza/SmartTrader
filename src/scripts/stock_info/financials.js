@@ -15,9 +15,9 @@ export default async function financials(symbol) {
     const divYield = document.createElement('p');
 
     yearLow.innerText = `52 week low: \$${formatThousands(metrics.metric['52WeekLow'])}`
-    yearLowDate.innerText = `52 week date: ${metrics.metric['52WeekLowDate']}`
+    yearLowDate.innerText = `52 week low date: ${metrics.metric['52WeekLowDate']}`
     yearHigh.innerText = `52 week high: \$${formatThousands(metrics.metric['52WeekHigh'])}`
-    yearHighDate.innerText = `52 week date: ${metrics.metric['52WeekHighDate']}`
+    yearHighDate.innerText = `52 week high date: ${metrics.metric['52WeekHighDate']}`
     divYield.innerText = `Current Dividend Yield TTM: ${metrics.metric['currentDividendYieldTTM']}%`
     
     container.appendChild(yearHigh);
