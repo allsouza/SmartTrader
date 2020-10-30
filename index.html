@@ -34,7 +34,7 @@
         type="text"
         name="searchBar"
         id="searchBar"
-        placeHolder="Look up stock ticker symbol"><i class="fas fa-times-circle" id="clear"></i></div>
+        placeHolder="Look up stock by ticker symbol or company name"><i class="fas fa-times-circle" id="clear"></i></div>
         <ul id="results"></ul>
       </div>
 
@@ -45,26 +45,48 @@
         <div class="modal-background"></div>
         <div class="about-modal">
             <div><h1>Welcome to SmarterTrading</h1><object type="image/svg+xml" data="./src/images/atom.svg"></object></div>
-            <p>One of the biggest stigmas regarding the stock market is that some people refer to it as gambling, but the truth of the matter is that it
-              doesn't have to be. By using Vanilla Javascript and the Finnhub API this website watches the stock market trends and variations,
-              analyses this information and tells the user the best time to buy or sell stock based on historic data.
-            <h3>How it works</h3>
-              The front page loads stock market news to keep our users educated.  
-              <br>
-              By using the search bar users can search for and select a stock they are interested in. 
-              <br> 
-              This will take them to the stock show page which includes a historical chart and information about the company
-              and also users will receive a suggestion from the website's algorithm on wether they should buy, hold or sell this stock.
-            <br>
-            <br>
-              By making educated transactions the chance of profit greatly increases and users can use the stock market as a money making tool instead of a casino.
-            </p>
+            <div class='content'>
+              <p>One of the biggest stigmas regarding the stock market is that some people refer to it as gambling, but the truth of the matter is that it
+                doesn't have to be. By using Vanilla Javascript and the Finnhub API this website displays the stock market trends and variations,
+                and makes suggestions to the user about the best time to buy, hold, or sell the stock.
+                By making educated transactions the chance of profit greatly increases and users can use the stock market as a money making tool instead of a casino.
+              </p>
+              <h3>How it works</h3>
+              <ol>
+                <li>The front page loads stock market news to keep our users educated.</li>
+                <li>By using the search bar users can search for and select a stock they are interested in.</li> 
+                <li>Selecting a stock will take them to the stock show page which includes a historical chart and information about the company
+                and also users will receive a suggestion from the website's algorithm on wether they should buy, hold or sell this stock.</li>
+                <li>Now users have more information before making a decision regarding a specific stock.</li>
+              </ol>
+              <h3>Our suggestion algorithm</h3>
+              <p>Our suggestion algorithm is constantly evolving in order to give the best advice to our users.  At the moment it takes into account the analyst consensus and makes a suggestion based on a mathematical analysis of all predictions.</p>
+              <h3>Useful terms</h3>
+              Some terms to keep in mind:
+                <ul>
+                  <li>The 52-week high: The highest price at which a security, such as a stock, has traded during the time period that equates to one year.</li>
+                  <li>52-week high date: The date when the 52-week high benchmark was reached.</li>
+                  <li>The 52-week low: The lowest price at which a security, such as a stock, has traded during the time period that equates to one year.</li>
+                  <li>52-week low date: The date when the 52-week low benchmark was reached.</li>
+                  <li>Current Dividend Yield TTM: Trailing dividend yield gives the dividend percentage paid over a prior period, typically one year. A trailing twelve month dividend yield, denoted as "TTM", includes all dividends paid during the past year in order to calculate the dividend yield.</li>
+                  <li>Price targets: A price target is an analyst's projection of a security's future price. ... When setting a stock's price target, an analyst is trying to determine what the stock is worth and where the price will be in 12 or 18 months. Ultimately, price targets depend on the valuation of the company that's issuing the stock.</li>
+                </ul>
+                <a href="https://www.investopedia.com/financial-term-dictionary-4769738">Investopedia</a> has a great dictorary explaining these terms and many others related to the stock market.
+              </p>
+              <h3>You are all set!</h3>
+                <p>Go forth and start investing smarter!
+                  <br>
+                  <br>
+                  <p class="disclaimer">DISCLAIMER: SmarterTrading makes only makes suggestions based on data it analyses and serves an informational purpose.  It is very important to do your own analysis before making any investment based on your own personal circumstances. We are not accountant or financial advisors, and the information contained on this website is not a substitute for financial advice from a professional who is aware of the facts and circumstances fo your individual situation.</p>
+              </p>
+            </div>
             <div>
               <button id='close-modal'>Make me smarter!</button>
               <div>
-                  <p>Built by Andre Souza</p> 
+                  <p>Built by <a href="https://allsouza.github.io/" target="_blank">Andre Souza</a></p> 
                   <a href="https://github.com/allsouza" target="_blank"><i class="fab fa-github"></i></a>
                   <a href="https://www.linkedin.com/in/andre-souza-2ab6a3155/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="https://angel.co/u/andre-souza-8" target="_blank"><i class="fab fa-angellist"></i></a>
               </div>
               
             </div>

@@ -1,4 +1,4 @@
-import show from './stock_info/stock';
+import show from './stock_info/stock_show';
 
 export default function search() {
     const result = document.getElementById('results');
