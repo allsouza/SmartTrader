@@ -3,7 +3,6 @@ import { openAbout } from './scripts/modal';
 import search from "./scripts/search";
 import body from './scripts/body';
 import 'regenerator-runtime/runtime'
-import show from './scripts/stock_info/stock_show';
 
 document.addEventListener("DOMContentLoaded", () => {
     const lastVisit = window.localStorage.getItem('lastVisit')
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector('.left').addEventListener('click', body);
 
-    show('AAPL');
-    // body();
+    body();
 
 })
